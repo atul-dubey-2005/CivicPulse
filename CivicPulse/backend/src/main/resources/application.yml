@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/civicpulse}
+    username: ${DB_USERNAME:civicpulse}
+    password: ${DB_PASSWORD:civicpulse}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+server:
+  port: ${PORT:8080}
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-development-secret-to-at-least-32-characters}
+    expiration-ms: ${JWT_EXPIRATION_MS:3600000}
+  cors-origin: ${CORS_ORIGIN:http://localhost:5173}
+  ai-url: ${AI_URL:http://localhost:8000}
+  upload-dir: ${UPLOAD_DIR:./uploads}

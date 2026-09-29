@@ -1,0 +1,1 @@
+package com.civicpulse.repository; import com.civicpulse.entity.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface StatusHistoryRepository extends JpaRepository<StatusHistory,UUID>{List<StatusHistory> findByComplaintComplaintIdOrderByChangedAtAsc(UUID id);}

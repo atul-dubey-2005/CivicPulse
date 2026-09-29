@@ -1,0 +1,1 @@
+package com.civicpulse.repository; import com.civicpulse.entity.*; import org.springframework.data.jpa.repository.*; import java.util.*; public interface ComplaintRepository extends JpaRepository<Complaint,UUID>{List<Complaint> findByCitizenUserIdOrderByCreatedAtDesc(UUID id); List<Complaint> findAllByOrderByCreatedAtDesc(); long countByStatus(ComplaintStatus status);}

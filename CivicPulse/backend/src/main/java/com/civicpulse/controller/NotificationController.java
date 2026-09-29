@@ -1,0 +1,3 @@
+package com.civicpulse.controller;
+import com.civicpulse.entity.Notification;import com.civicpulse.repository.NotificationRepository;import com.civicpulse.service.CurrentUserService;import org.springframework.web.bind.annotation.*;import java.util.*;
+@RestController @RequestMapping("/api/notifications") public class NotificationController {private final NotificationRepository repo;private final CurrentUserService current;public NotificationController(NotificationRepository r,CurrentUserService c){repo=r;current=c;}@GetMapping public List<Notification> mine(){return repo.findByUserUserIdOrderByCreatedAtDesc(current.get().getUserId());}}

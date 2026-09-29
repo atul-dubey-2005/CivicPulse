@@ -1,0 +1,3 @@
+package com.civicpulse.controller;
+import com.civicpulse.service.AiService; import jakarta.validation.constraints.NotBlank; import org.springframework.security.access.prepost.PreAuthorize; import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/ai") @PreAuthorize("hasAnyRole('OFFICER','ADMIN')") public class AiController {private final AiService ai;public AiController(AiService a){ai=a;}@PostMapping("/similarity") public Result similarity(@RequestBody Request r){return new Result(ai.similarity(r.textA(),r.textB()));}public record Request(@NotBlank String textA,@NotBlank String textB){}public record Result(double score){}}

@@ -1,0 +1,1 @@
+package com.civicpulse.repository; import com.civicpulse.entity.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface ResolutionVerificationRepository extends JpaRepository<ResolutionVerification,UUID>{}
